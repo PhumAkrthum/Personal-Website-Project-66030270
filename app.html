@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="โปรเจกต์ของฉัน">
-    <title>โปรเจกต์ - เว็บไซต์ส่วนตัว</title>
+    <meta name="description" content="เกม Memory Card จับคู่การ์ด ฝึกความจำ">
+    <title>Memory Card Game - เว็บไซต์ส่วนตัว</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
 </head>
 
 <body>
     <header class="header">
         <h1 class="header__title">ภูมิ อัครธรรม</h1>
-        <p class="header__subtitle">นักศึกษาและผู้หลงใหลในการพัฒนาเว็บ</p>
+        <p class="header__subtitle">นักศึกษาและผู้พัฒนาเว็บ</p>
     </header>
 
     <nav class="nav">
@@ -23,33 +24,73 @@
         </ul>
     </nav>
 
-    <main class="main-content">
-        <article class="main-content__article" style="grid-column: 1 / -1;">
-            <section id="projects" class="card">
-                <h2 class="card__title">โปรเจกต์ (Projects)</h2>
-                <div class="card__content">
-                    <p class="card__text">ส่วนนี้เว้นไว้สำหรับใส่ข้อมูลโปรเจกต์ที่ทำในชั้นเรียน</p>
+    <main class="main-content" style="grid-template-columns: 1fr;">
 
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <h3 class="feature-item__title">โปรเจกต์ที่ 1: [ชื่อโปรเจกต์]</h3>
-                            <p class="feature-item__desc">[คำอธิบายโปรเจกต์]</p>
+        <!-- Progressive Enhancement: เนื้อหาที่แสดงแม้ปิด JavaScript -->
+        <article class="main-content__article">
+            <section class="card">
+                <h2 class="card__title">🃏 Memory Card Game</h2>
+
+                <!-- กฎกติกา: แสดงเสมอแม้ไม่มี JS (Progressive Enhancement) -->
+                <noscript>
+                    <div class="game-noscript">
+                        <p>⚠️ เกมนี้ต้องใช้ JavaScript ในการทำงาน กรุณาเปิด JavaScript ในเบราว์เซอร์ของคุณ</p>
+                    </div>
+                </noscript>
+
+                <div class="game-rules">
+                    <h3>กติกาการเล่น</h3>
+                    <ol>
+                        <li>กดปุ่ม "เริ่มเกม" เพื่อเริ่มเล่น</li>
+                        <li>คลิกที่การ์ดเพื่อเปิดดู Emoji ข้างใน</li>
+                        <li>เปิดการ์ดได้ครั้งละ 2 ใบ</li>
+                        <li>ถ้า Emoji ตรงกัน การ์ดจะเปิดค้างไว้</li>
+                        <li>ถ้าไม่ตรง การ์ดจะคว่ำกลับ</li>
+                        <li>จับคู่ให้ครบทุกใบ ด้วยจำนวนครั้งน้อยที่สุด!</li>
+                    </ol>
+                </div>
+
+                <!-- ส่วนควบคุมเกม -->
+                <div class="game-controls" id="gameControls">
+                    <div class="game-stats">
+                        <div class="game-stats__item">
+                            <span class="game-stats__label">⏱️ เวลา</span>
+                            <span class="game-stats__value" id="timer">00:00</span>
                         </div>
-                        <div class="feature-item">
-                            <h3 class="feature-item__title">โปรเจกต์ที่ 2: [ชื่อโปรเจกต์]</h3>
-                            <p class="feature-item__desc">[คำอธิบายโปรเจกต์]</p>
+                        <div class="game-stats__item">
+                            <span class="game-stats__label">🔄 ครั้งที่เปิด</span>
+                            <span class="game-stats__value" id="moves">0</span>
+                        </div>
+                        <div class="game-stats__item">
+                            <span class="game-stats__label">✅ จับคู่ได้</span>
+                            <span class="game-stats__value" id="pairs">0 / 8</span>
                         </div>
                     </div>
+                    <button class="game-btn" id="startBtn">🎮 เริ่มเกม</button>
                 </div>
+
+                <!-- กระดานเกม: การ์ด 4x4 -->
+                <div class="game-board" id="gameBoard">
+                    <!-- การ์ดจะถูกสร้างโดย JavaScript -->
+                </div>
+
+                <!-- ข้อความชนะ -->
+                <div class="game-win" id="gameWin" hidden>
+                    <h3 class="game-win__title">🎉 ยินดีด้วย!</h3>
+                    <p class="game-win__text" id="winMessage"></p>
+                    <button class="game-btn" id="restartBtn">🔄 เล่นอีกครั้ง</button>
+                </div>
+
             </section>
         </article>
     </main>
 
     <footer class="footer">
-        <p class="footer__text">&copy; 2026 ภูมิ อัครธรรม (Phum Akthum) โปรเจกต์สำหรับวิชา 66030270</p>
+        <p class="footer__text">&copy; 2026 ภูมิ อัครธรรม (Phum Akthum) 66030270</p>
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
