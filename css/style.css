@@ -177,6 +177,170 @@ body {
     color: var(--accent-color);
 }
 
+/* === CV Page Styles === */
+
+/* Definition List: ข้อมูลส่วนตัว - ใช้ Grid แบ่ง 2 คอลัมน์ (label : value) */
+.cv-info {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0.6rem 1.5rem;
+    margin: 1rem 0 2rem;
+    padding: 0;
+}
+
+.cv-info dt {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.cv-info dd {
+    margin: 0;
+}
+
+.cv-info dd a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.cv-info dd a:hover {
+    text-decoration: underline;
+}
+
+/* Table: การศึกษา */
+.cv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+}
+
+.cv-table th,
+.cv-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cv-table thead th {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    font-weight: 600;
+}
+
+.cv-table tbody tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+
+.cv-table tbody tr:hover {
+    background-color: #e2eaf3;
+    transition: background-color 0.2s ease;
+}
+
+/* Unordered List: ทักษะ / งานอดิเรก */
+.cv-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.cv-list li {
+    padding: 0.5rem 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    background-color: #f0f4f8;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.cv-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.cv-list li:hover {
+    background-color: #e2eaf3;
+}
+
+/* Blockquote: คติประจำใจ */
+.cv-quote {
+    margin: 1rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    background-color: #f0f4f8;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.cv-quote p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Ordered List: เป้าหมาย */
+.cv-goals {
+    margin: 1rem 0 0;
+    padding-left: 1.5rem;
+}
+
+.cv-goals li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.cv-goals li:last-child {
+    border-bottom: none;
+}
+
+/* CV Page: h3 section titles */
+.card__content h3 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.4rem;
+}
+
+.card__content h3:first-child {
+    margin-top: 0;
+}
+
+/* === Responsive: CV Page === */
+@media (max-width: 768px) {
+    .cv-info {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-info dt {
+        margin-top: 0.5rem;
+    }
+
+    .cv-table {
+        font-size: 0.85rem;
+    }
+
+    .cv-table th,
+    .cv-table td {
+        padding: 0.5rem;
+    }
+
+    .cv-list {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === Footer === */
+
 .footer {
     background-color: var(--text-main);
     color: var(--bg-white);
