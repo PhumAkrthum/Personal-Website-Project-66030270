@@ -51,9 +51,16 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    /* Module 03: Flexbox Container */
     display: flex;
-    /* Flexbox preview */
+    flex-direction: row;
+    /* Default Main Axis */
     justify-content: center;
+    /* Align along Main Axis */
+    align-items: center;
+    /* Align along Cross Axis */
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
     gap: 2rem;
 }
 
@@ -62,6 +69,8 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    padding: 0.5rem;
+    /* Better click area */
 }
 
 .nav__link:hover {
@@ -73,21 +82,53 @@ body {
     border-bottom: 2px solid var(--accent-color);
 }
 
+/* Module 03: CSS Grid for Main Layout */
 .main-content {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
-    display: flex;
-    /* Flexbox preview */
+    display: grid;
+    /* 2 columns: 3fr for article, 1fr for sidebar (75% / 25% roughly) */
+    grid-template-columns: 3fr 1fr;
     gap: 2rem;
 }
 
-.main-content__article {
-    flex: 3;
-}
+/* Ensure child elements take up their grid areas */
+/* .main-content__article is implicitly placed in column 1 */
 
 .main-content__sidebar {
-    flex: 1;
+    /* Implicitly placed in column 2 */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Module 03: CSS Grid for Feature Items */
+.feature-grid {
+    display: grid;
+    /* Create responsive columns that fill the space, minimum 200px wide */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-item {
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.feature-item__title {
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.feature-item__desc {
+    margin-bottom: 0;
+    font-size: 0.95rem;
 }
 
 .card {
@@ -95,11 +136,18 @@ body {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* For spacing if not in a grid/flex container */
     margin-bottom: 2rem;
+}
+
+.main-content__article .card:last-child {
+    margin-bottom: 0;
 }
 
 .card--small {
     padding: 1.5rem;
+    margin-bottom: 0;
+    /* Override because sidebar uses flex gap */
 }
 
 .card__title {
@@ -110,27 +158,30 @@ body {
 }
 
 .card__text {
-    margin-bottom: 0;
+    line-height: 1.8;
 }
 
 .card__list {
     padding-left: 1.5rem;
+    margin-bottom: 0;
 }
 
 .card__link {
     color: var(--primary-color);
     text-decoration: none;
+    font-weight: 500;
 }
 
 .card__link:hover {
     text-decoration: underline;
+    color: var(--accent-color);
 }
 
 .footer {
     background-color: var(--text-main);
     color: var(--bg-white);
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
     margin-top: 4rem;
 }
 
