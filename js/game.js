@@ -82,6 +82,9 @@
         return;
     }
 
+    // Progressive Enhancement: แสดงส่วนควบคุมเกมเมื่อ JS พร้อมทำงาน
+    document.body.classList.add("game--ready");
+
     /* ===== ฟังก์ชันช่วย (Utility Functions) ===== */
 
     /**

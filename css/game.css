@@ -2,6 +2,27 @@
    Memory Card Game - CSS Styles
    =================================== */
 
+/* Progressive Enhancement:
+   ซ่อนส่วนควบคุมเกมไว้ก่อน จะแสดงเมื่อ JS เพิ่ม class .game--ready */
+.game-controls,
+.game-board,
+.game-win {
+    display: none;
+}
+
+/* เมื่อ JS พร้อม จะเพิ่ม .game--ready ที่ body แล้วแสดงส่วนเหล่านี้ */
+.game--ready .game-controls {
+    display: block;
+}
+
+.game--ready .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+}
+
 /* กฎกติกา */
 .game-rules {
     background-color: #f0f4f8;
