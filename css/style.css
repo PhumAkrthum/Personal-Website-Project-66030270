@@ -333,16 +333,90 @@ body {
     margin-top: 0;
 }
 
-/* === Responsive: CV Page === */
+/* =============================================
+   Responsive Design - Media Queries ทุกหน้า
+   ============================================= */
+
+/* --- Tablet (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+
+    /* เปลี่ยนเป็น 1 คอลัมน์เมื่อหน้าจอไม่กว้างพอ */
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sidebar ย้ายลงล่าง → วาง card แนวนอน */
+    .main-content__sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main-content__sidebar .card--small {
+        flex: 1 1 200px;
+    }
+}
+
+/* --- Mobile / Tablet เล็ก (max-width: 768px) --- */
 @media (max-width: 768px) {
+
+    /* Header: ลดขนาด */
+    .header {
+        padding: 2rem 1rem;
+    }
+
+    .header__title {
+        font-size: 2rem;
+    }
+
+    .header__subtitle {
+        font-size: 1rem;
+    }
+
+    /* Nav: gap แคบลง */
+    .nav__list {
+        gap: 0.75rem 1.25rem;
+    }
+
+    /* Main Content: padding ลด */
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 0 0.75rem;
+        margin: 1.5rem auto;
+    }
+
+    /* Card: padding ลด */
+    .card {
+        padding: 1.5rem;
+    }
+
+    /* Feature Grid: stack เป็น 1 คอลัมน์ */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* CV Profile: stack แนวตั้ง + center */
+    .cv-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cv-photo__img {
+        width: 150px;
+        height: 190px;
+    }
+
+    /* CV Info: 1 คอลัมน์ */
     .cv-info {
         grid-template-columns: 1fr;
+        text-align: left;
     }
 
     .cv-info dt {
         margin-top: 0.5rem;
     }
 
+    /* CV Table: font ลด */
     .cv-table {
         font-size: 0.85rem;
     }
@@ -352,12 +426,94 @@ body {
         padding: 0.5rem;
     }
 
+    /* CV List: 1 คอลัมน์ */
     .cv-list {
         grid-template-columns: 1fr;
     }
 
-    .main-content {
-        grid-template-columns: 1fr;
+    /* Sidebar: stack กลับเป็นแนวตั้ง */
+    .main-content__sidebar {
+        flex-direction: column;
+    }
+
+    /* Footer: ลด padding */
+    .footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+}
+
+/* --- มือถือเล็ก (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    /* Header: ขนาดกะทัดรัด */
+    .header {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .header__title {
+        font-size: 1.6rem;
+    }
+
+    .header__subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Nav: แคบลงอีก */
+    .nav {
+        padding: 0.75rem 0;
+    }
+
+    .nav__list {
+        gap: 0.4rem 0.75rem;
+    }
+
+    .nav__link {
+        font-size: 0.85rem;
+        padding: 0.35rem;
+    }
+
+    /* Card: padding แคบสุด */
+    .card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .card__title {
+        font-size: 1.15rem;
+    }
+
+    /* Feature Item: padding ลด */
+    .feature-item {
+        padding: 1rem;
+    }
+
+    .feature-item__title {
+        font-size: 1rem;
+    }
+
+    .feature-item__desc {
+        font-size: 0.85rem;
+    }
+
+    /* CV Photo: ย่อลงอีก */
+    .cv-photo__img {
+        width: 120px;
+        height: 155px;
+    }
+
+    /* CV Quote: font ลด */
+    .cv-quote p {
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .footer__text {
+        font-size: 0.85rem;
     }
 }
 
