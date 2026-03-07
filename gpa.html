@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="โปรแกรมคำนวณเกรดเฉลี่ย (GPAX) สำหรับนักศึกษา สร้างด้วย JavaScript">
+    <meta name="author" content="ภูมิ อัครธรรม (Phum Akrthum)">
+    <meta name="theme-color" content="#0056b3">
+    <!-- Open Graph -->
+    <meta property="og:title" content="GPAX Calculator - ภูมิ อัครธรรม">
+    <meta property="og:description" content="โปรแกรมช่วยคำนวณเกรดเฉลี่ยสะสม (GPAX) สำหรับนักศึกษา">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://PhumAkrthum.github.io/Personal-Website-Project-66030270/gpa.html">
+    <title>GPAX Calculator - ภูมิ อัครธรรม | เว็บไซต์ส่วนตัว</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gpa.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">ภูมิ อัครธรรม</h1>
+        <p class="header__subtitle">นักศึกษาและผู้พัฒนาเว็บ</p>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="index.html" class="nav__link">หน้าแรก</a></li>
+            <li class="nav__item"><a href="cv.html" class="nav__link">ประวัติของฉัน</a></li>
+            <li class="nav__item"><a href="app.html" class="nav__link">เกมจับคู่</a></li>
+            <li class="nav__item"><a href="gpa.html" class="nav__link nav__link--active">คำนวณเกรด</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content" style="grid-template-columns: 1fr;">
+
+        <!-- Progressive Enhancement: เนื้อหาที่แสดงแม้ปิด JavaScript -->
+        <article class="main-content__article">
+            <section class="card">
+                <h2 class="card__title">🧮 เครื่องคิดเลข GPAX (เกรดเฉลี่ย)</h2>
+
+                <!-- กรณีปิด JavaScript -->
+                <noscript>
+                    <div class="gpa-noscript">
+                        <p>⚠️ แอปพลิเคชันคำนวณเกรดต้องใช้ JavaScript ในการทำงาน กรุณาเปิดใช้งาน JavaScript
+                            ในเบราว์เซอร์ของคุณ</p>
+                    </div>
+                </noscript>
+
+                <div class="gpa-container" id="gpaContainer" style="display: none;">
+
+                    <div class="gpa-instructions">
+                        <h3>วิธีใช้งาน</h3>
+                        <ol>
+                            <li>กรอกชื่อวิชา (ไม่บังคับ)</li>
+                            <li>เลือก <strong>หน่วยกิต</strong> และ <strong>เกรด</strong> ที่คาดว่าจะได้</li>
+                            <li>กดสัญลักษณ์ ➕ เพื่อเพิ่มรายวิชา หรือ 🗑️ เพื่อลบ</li>
+                            <li>โปรแกรมจะ <strong>คำนวณเกรดเฉลี่ยให้โดยอัตโนมัติ</strong> ทุกครั้งที่มีการเปลี่ยนแปลง
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- ส่วนแสดงผลลัพธ์ -->
+                    <div class="gpa-result-box">
+                        <div class="gpa-result-item">
+                            <span class="gpa-result-label">หน่วยกิตสะสม</span>
+                            <span class="gpa-result-value" id="totalCredits">0.0</span>
+                        </div>
+                        <div class="gpa-result-item gpa-result-item--highlight">
+                            <span class="gpa-result-label">เกรดเฉลี่ย (GPAX)</span>
+                            <span class="gpa-result-value gpa-result-value--large" id="gpaxScore">0.00</span>
+                        </div>
+                        <div class="gpa-result-message" id="gpaMessage">มาเริ่มคำนวณเกรดกันเถอะ!</div>
+                    </div>
+
+                    <!-- ฟอร์มกรอกข้อมูล (CSS Grid) -->
+                    <div class="gpa-form">
+                        <div class="gpa-form-header">
+                            <div>ชื่อวิชา / รหัสวิชา</div>
+                            <div>หน่วยกิต</div>
+                            <div>เกรด</div>
+                            <div>จัดการ</div>
+                        </div>
+
+                        <!-- รายการวิชาจะถูกเพิ่มด้วย JavaScript ที่นี่ -->
+                        <div id="courseList" class="gpa-course-list">
+                            <!-- แถวตัวอย่างที่จะถูกลบออกเมื่อ JS โหลด -->
+                        </div>
+
+                        <div class="gpa-actions">
+                            <button type="button" class="gpa-btn gpa-btn--add" id="addCourseBtn">
+                                ➕ เพิ่มรายวิชาใหม่
+                            </button>
+                            <button type="button" class="gpa-btn gpa-btn--clear" id="clearAllBtn">
+                                🔄 ล้างข้อมูลทั้งหมด
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">&copy; 2026 ภูมิ อัครธรรม (Phum Akthum) 66030270</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/gpa.js"></script>
+</body>
+
+</html>

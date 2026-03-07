@@ -1,0 +1,342 @@
+/* ===================================
+   GPAX Calculator - CSS Styles
+   =================================== */
+
+/* Progressive Enhancement */
+.gpa-noscript {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ffc107;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* เมื่อ JS พร้อม จะนำ display: none ออกจาก HTML style inline */
+.gpa-ready .gpa-container {
+    display: block;
+}
+
+/* คำแนะนำวิธีใช้ */
+.gpa-instructions {
+    background-color: #f0f4f8;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.gpa-instructions h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+
+.gpa-instructions ol {
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+.gpa-instructions li {
+    padding: 0.2rem 0;
+}
+
+/* ===================================
+   ส่วนแสดงผลลัพธ์เกรดเฉลี่ย (Flexbox)
+   =================================== */
+.gpa-result-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ใส่ลวดลายพื้นหลังจางๆ ให้ดูเท่ */
+.gpa-result-box::after {
+    content: "🎓";
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.1;
+    right: -20px;
+    top: -20px;
+    pointer-events: none;
+}
+
+.gpa-result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gpa-result-item--highlight {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.gpa-result-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.gpa-result-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.gpa-result-value--large {
+    font-size: 3rem;
+    color: #ffde59;
+    /* สีทองสำหรับเกรด */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ข้อความให้กำลังใจ */
+.gpa-result-message {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.gpa-result-message.honors {
+    background: rgba(40, 167, 69, 0.8);
+    /* สีเขียวสำหรับเกียรตินิยม */
+}
+
+.gpa-result-message.warning {
+    background: rgba(220, 53, 69, 0.8);
+    /* สีแดงสำหรับโปร */
+}
+
+/* ===================================
+   ฟอร์มตาราง (CSS Grid)
+   =================================== */
+.gpa-form {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+}
+
+/* หัวตาราง */
+.gpa-form-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 60px;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.gpa-form-header div:first-child {
+    text-align: left;
+}
+
+/* รายการวิชา */
+.gpa-course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* แต่ละแถววิชา (ใช้ Grid เหมือนหัวตาราง) */
+.gpa-course-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 60px;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.gpa-course-row:hover {
+    border-color: #ced4da;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Input Styles */
+.gpa-input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.gpa-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+select.gpa-input {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+/* ปุ่มจัดการแถว */
+.gpa-btn-remove {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: background-color 0.2s;
+}
+
+.gpa-btn-remove:hover {
+    background-color: #c82333;
+}
+
+/* ปุ่ม Actions ด้านล่างตาราง */
+.gpa-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #ced4da;
+}
+
+.gpa-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gpa-btn--add {
+    background-color: #28a745;
+    color: white;
+}
+
+.gpa-btn--add:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.gpa-btn--clear {
+    background-color: #6c757d;
+    color: white;
+}
+
+.gpa-btn--clear:hover {
+    background-color: #5a6268;
+}
+
+/* =============================================
+   Responsive Design - Media Queries
+   ============================================= */
+
+/* Tablet Portrait และหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .gpa-result-box {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .gpa-result-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* ซ่อนหัวตารางบนมือถือ */
+    .gpa-form-header {
+        display: none;
+    }
+
+    /* เปลี่ยนแถวให้เป็นกล่องการ์ด (Stack) แทน Grid */
+    .gpa-course-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+        position: relative;
+    }
+
+    /* เพิ่ม Label หลอกๆ ให้ช่อง input รู้ว่าคือกรอกอะไร */
+    .gpa-course-row>div:nth-child(1)::before {
+        content: "ชื่อวิชา: ";
+        font-weight: bold;
+    }
+
+    .gpa-course-row>div:nth-child(2)::before {
+        content: "หน่วยกิต: ";
+        font-weight: bold;
+    }
+
+    .gpa-course-row>div:nth-child(3)::before {
+        content: "เกรดที่ได้: ";
+        font-weight: bold;
+    }
+
+    /* จัดปุ่มลบให้อยู่มุมขวาบนของการ์ดแต่ละแถว */
+    .gpa-course-row>div.gpa-row-actions {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .gpa-btn-remove {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    /* ปรับปุ่ม Action ด้านล่าง */
+    .gpa-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .gpa-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
