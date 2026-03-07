@@ -19,8 +19,7 @@
 }
 
 /* เมื่อ JS พร้อม จะนำกติกามาแสดง */
-.gpa-ready .gpa-container {
-    display: block;
+.gpa-ready .gpa-container display: block;
 }
 
 /* คำแนะนำวิธีใช้ */
@@ -80,12 +79,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.1);
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     border-radius: 8px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+    flex: 1 1 0;
 }
 
 .gpa-result-item--highlight {
@@ -274,6 +276,89 @@ select.gpa-input {
     background-color: #5a6268;
 }
 
+/* ===================================
+   ตารางเกณฑ์คะแนนเกียรตินิยม
+   =================================== */
+.gpa-criteria {
+    margin-top: 2.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.gpa-criteria-title {
+    margin-top: 0;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+}
+
+.gpa-criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gpa-criteria-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #ccc;
+}
+
+.gpa-criteria-item--gold {
+    border-top-color: #FFD700;
+    /* ทอง */
+}
+
+.gpa-criteria-item--first {
+    border-top-color: #FFA500;
+    /* ส้ม */
+}
+
+.gpa-criteria-item--second {
+    border-top-color: #C0C0C0;
+    /* เงิน */
+}
+
+.gpa-criteria-item--normal {
+    border-top-color: #28a745;
+    /* เขียว */
+}
+
+.gpa-criteria-item--danger {
+    border-top-color: #dc3545;
+    /* แดง */
+}
+
+.gpa-criteria-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.gpa-criteria-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.gpa-criteria-note {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
 /* =============================================
    Responsive Design - Media Queries
    ============================================= */
@@ -342,5 +427,15 @@ select.gpa-input {
     .gpa-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .gpa-criteria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .gpa-criteria-grid {
+        grid-template-columns: 1fr;
     }
 }

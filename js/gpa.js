@@ -201,16 +201,17 @@
         // เคลียร์คลาสเก่าก่อน
         gpaMessageEl.classList.remove("honors", "warning");
 
-        if (gpax >= 3.6) {
-            gpaMessageEl.textContent = "🎉 ยอดเยี่ยม! มีสิทธิ์ได้เกียรตินิยมอันดับ 1 นะเนี่ย";
+        if (gpax >= 3.75) {
+            gpaMessageEl.textContent = "🏆 สุดยอด! มีสิทธิ์ได้เกียรตินิยมอันดับ 1 (เหรียญทอง)";
+            gpaMessageEl.classList.add("honors");
+        } else if (gpax >= 3.50) {
+            gpaMessageEl.textContent = "🎉 ยอดเยี่ยม! มีสิทธิ์ได้เกียรตินิยมอันดับ 1";
             gpaMessageEl.classList.add("honors");
         } else if (gpax >= 3.25) {
             gpaMessageEl.textContent = "✨ เก่งมาก! เล็งเกียรตินิยมอันดับ 2 ไว้ได้เลย";
             gpaMessageEl.classList.add("honors");
-        } else if (gpax >= 2.75) {
-            gpaMessageEl.textContent = "👍 เยี่ยม! รักษาระดับไว้นะครับ";
         } else if (gpax >= 2.0) {
-            gpaMessageEl.textContent = "💪 สู้ต่อไป! ยังมีโอกาสดึงเกรดขึ้นได้อีกเยอะ";
+            gpaMessageEl.textContent = "👍 เยี่ยม! รักษาระดับไว้นะครับ";
         } else {
             gpaMessageEl.textContent = "⚠️ ระวังติดโปร! ต้องขยันอ่านหนังสือเพิ่มแล้วนะ";
             gpaMessageEl.classList.add("warning");
