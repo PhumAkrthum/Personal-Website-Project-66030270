@@ -65,12 +65,14 @@
         nameInput.type = "text";
         nameInput.placeholder = "ชื่อวิชา หรือ รหัสวิชา";
         nameInput.className = "gpa-input gpa-input-name";
+        nameInput.setAttribute("aria-label", "ชื่อวิชา หรือ รหัสวิชา");
         nameCol.appendChild(nameInput);
 
         /* 2. หน่วยกิต (Select) */
         var creditCol = document.createElement("div");
         var creditSelect = document.createElement("select");
         creditSelect.className = "gpa-input gpa-input-credit";
+        creditSelect.setAttribute("aria-label", "เลือกหน่วยกิต");
 
         // ใส่ Option สำหรับหน่วยกิต ตั้งแต่ 1 ถึง 6
         var creditOptions = [
@@ -98,6 +100,7 @@
         var gradeCol = document.createElement("div");
         var gradeSelect = document.createElement("select");
         gradeSelect.className = "gpa-input gpa-input-grade";
+        gradeSelect.setAttribute("aria-label", "เลือกเกรด");
 
         var gradeOptions = [
             { value: "", text: "เกรด" },
@@ -130,6 +133,7 @@
         removeBtn.className = "gpa-btn-remove";
         removeBtn.innerHTML = "🗑️";
         removeBtn.title = "ลบวิชานี้";
+        removeBtn.setAttribute("aria-label", "ลบวิชานี้");
 
         // ลบแถวนี้ทิ้งเมื่อคลิก
         removeBtn.addEventListener("click", function () {

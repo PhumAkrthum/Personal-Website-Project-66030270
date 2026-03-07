@@ -74,12 +74,12 @@ body {
 }
 
 .nav__link:hover {
-    color: var(--accent-color);
+    color: #ffde59;
 }
 
 .nav__link--active {
-    color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
+    color: #ffde59;
+    border-bottom: 2px solid #ffde59;
 }
 
 /* Module 03: CSS Grid for Main Layout */

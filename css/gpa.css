@@ -15,11 +15,6 @@
 }
 
 .gpa-container {
-    display: none;
-}
-
-/* เมื่อ JS พร้อม จะนำกติกามาแสดง */
-.gpa-ready .gpa-container {
     display: block;
 }
 
@@ -172,6 +167,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    min-height: 320px;
+    /* Reserve space for initial rows to prevent CLS */
 }
 
 /* แต่ละแถววิชา (ใช้ Grid เหมือนหัวตาราง) */
@@ -259,22 +256,22 @@ select.gpa-input {
 }
 
 .gpa-btn--add {
-    background-color: #28a745;
+    background-color: #1e7e34;
     color: white;
 }
 
 .gpa-btn--add:hover {
-    background-color: #218838;
+    background-color: #155724;
     transform: translateY(-2px);
 }
 
 .gpa-btn--clear {
-    background-color: #6c757d;
+    background-color: #545b62;
     color: white;
 }
 
 .gpa-btn--clear:hover {
-    background-color: #5a6268;
+    background-color: #4e555b;
 }
 
 /* ===================================
@@ -354,7 +351,7 @@ select.gpa-input {
 
 .gpa-criteria-note {
     font-size: 0.85rem;
-    color: #6c757d;
+    color: #495057;
     margin: 0;
     text-align: center;
     font-style: italic;
