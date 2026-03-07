@@ -4,8 +4,8 @@
     /* Professional Blue */
     --secondary-color: #003d82;
     /* Darker Blue */
-    --accent-color: #007bff;
-    /* Light Blue for highlights */
+    --accent-color: #0056b3;
+    /* Accessible Blue for highlights (WCAG AA compliant) */
     --text-main: #333333;
     --text-light: #666666;
     --bg-main: #f8f9fa;
@@ -220,7 +220,7 @@ body {
 }
 
 .cv-info dd a {
-    color: var(--accent-color);
+    color: #0046a0;
     text-decoration: none;
 }
 
