@@ -14,7 +14,11 @@
     font-weight: bold;
 }
 
-/* เมื่อ JS พร้อม จะนำ display: none ออกจาก HTML style inline */
+.gpa-container {
+    display: none;
+}
+
+/* เมื่อ JS พร้อม จะนำกติกามาแสดง */
 .gpa-ready .gpa-container {
     display: block;
 }
