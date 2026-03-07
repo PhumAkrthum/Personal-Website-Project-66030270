@@ -19,7 +19,8 @@
 }
 
 /* เมื่อ JS พร้อม จะนำกติกามาแสดง */
-.gpa-ready .gpa-container display: block;
+.gpa-ready .gpa-container {
+    display: block;
 }
 
 /* คำแนะนำวิธีใช้ */
